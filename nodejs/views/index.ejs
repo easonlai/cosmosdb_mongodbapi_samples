@@ -1,0 +1,48 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+  </head>
+
+  <body>
+    <script src="/main.js"></script>
+    <h1>CosmosDB MongoDB API NodeJS Sample</h1>
+    <h2>[CREATE] Create new Product</h2>
+    <form action="/creates" method="POST">
+      <input type="text" placeholder="product_id" name="product_id">
+      <input type="text" placeholder="recommend_product_id_1" name="recommend_product_id_1">
+      <input type="text" placeholder="recommend_product_id_2" name="recommend_product_id_2">
+      <button type="submit">Submit</button>
+    </form>
+    <p></p>
+    <h2>[READ] List of Products</h2>
+    <ul class="products">
+      <!-- Loop through quotes -->
+      <% for(var i = 0; i < products.length; i++) {%>
+        <li class="product">
+          <span><%= products[i].product_id %></span>:
+          <span><%= products[i].recommend_product_id_1 %></span>
+          <span><%= products[i].recommend_product_id_2 %></span>
+        </li>
+      <% } %>
+    </ul>
+    <div>
+      <h2>[UPDATE] Update Product</h2>
+      <form action="/updates" method="POST">
+        <input type="text" placeholder="product_id" name="product_id">
+        <input type="text" placeholder="recommend_product_id_1" name="recommend_product_id_1">
+        <input type="text" placeholder="recommend_product_id_2" name="recommend_product_id_2">
+        <button id="update">Update</button>
+      </form>
+    </div>
+    <div>
+      <h2>[DELETE] Delete Product</h2>
+      <form action="/delete" method="POST">
+        <input type="text" placeholder="product_id" name="product_id">
+        <button id="delete">Delete</button>
+      </form>
+    </div>
+  </body>
+</html>
